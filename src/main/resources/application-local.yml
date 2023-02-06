@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bonus-accrual?currentSchema=bonus_accrual
+    username: postgres
+    password: postgres
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  liquibase:
+    enabled: true
+    test-rollback-on-update: true
+    url: jdbc:postgresql://localhost:5432/bonus-accrual
+    default-schema: bonus_accrual
+    liquibase-schema: bonus_accrual
+    user: postgres
+    password: postgres

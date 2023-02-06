@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${BONUS_ACCRUAL_HOST}:${BONUS_ACCRUAL_DATABASE_PORT}/${BONUS_ACCRUAL_DATABASE_NAME}
+    username: ${BONUS_ACCRUAL_DATABASE_USERNAME}
+    password: ${BONUS_ACCRUAL_DATABASE_PASSWORD}
+    hikari:
+      connectionTimeout: 30000
+      idleTimeout: 600000
+      maxLifetime: 7190000
+      minimumIdle: 2
+      maximumPoolSize: 50
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  liquibase:
+    enabled: true
+    change-log: classpath:database_bonus-accrual_changelog.xml
+    drop-first: false
+    test-rollback-on-update: false
+    default-schema: ${APP_POSTGRESQL_SCHEMA}
+    liquibase-schema: ${APP_POSTGRESQL_SCHEMA}
+    user: ${APP_POSTGRESQL_MIGRATION_USER}
+    password: ${APP_POSTGRESQL_MIGRATION_PASSWORD}

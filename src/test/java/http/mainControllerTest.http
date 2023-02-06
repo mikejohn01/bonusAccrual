@@ -1,0 +1,30 @@
+### Оплата покупки
+GET {{host}}:{{port}}/api/payment/Online/100
+
+###
+GET {{host}}:{{port}}/api/payment/Shop/120
+
+###
+GET {{host}}:{{port}}/api/payment/Online/301
+
+###
+GET {{host}}:{{port}}/api/payment/Online/17
+
+###
+GET {{host}}:{{port}}/api/payment/Online/1000
+
+###
+GET {{host}}:{{port}}/api/payment/Online/21
+
+###
+GET {{host}}:{{port}}/api/payment/Shop/570
+
+###
+GET {{host}}:{{port}}/api/payment/Online/700
+
+#### Количество бонусов на счете банка
+GET {{host}}:{{port}}/api/bankAccountOfEMoney
+
+#### Количество наличных/безналичных денег
+GET {{host}}:{{port}}/api/money
+###

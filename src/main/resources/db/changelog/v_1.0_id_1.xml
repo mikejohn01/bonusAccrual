@@ -1,0 +1,30 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="v_1.0_id_1.0_module" author="Mikhail Glushkovskii">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="${prefix}_count"/>
+            </not>
+        </preConditions>
+        <comment>Создание таблицы ${prefix}_count</comment>
+        <createTable tableName="${prefix}_count">
+            <column name="id" type="UUID" remarks="Идентификатор транзакции">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_count"/>
+            </column>
+            <column name="amount" type="NUMERIC" remarks="Cумма транзакции"/>
+            <column name="cash_balance" type="NUMERIC" remarks="Остаток наличных денег"/>
+            <column name="non_cash_balance" type="NUMERIC" remarks="Остаток безналичных денег"/>
+            <column name="payment_state" type="VARCHAR" remarks="Тип платежа"/>
+            <column name="bonus" type="NUMERIC" remarks="Начисленные бонусы"/>
+            <column name="bonus_amount" type="NUMERIC" remarks="Остаток бонусов"/>
+            <column name="timestamp" type="TIMESTAMP WITHOUT TIME ZONE"
+                    remarks="Время исполнения транзакции"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="${prefix}_count"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

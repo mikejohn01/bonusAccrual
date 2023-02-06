@@ -1,0 +1,26 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="v_1.0_id_2.0_module" author="Mikhail Glushkovskii">
+        <insert tableName="${prefix}_count">
+            <column name="id" value="0608ae95-0107-49d1-9b95-5f691c345ea1"/>
+
+            <column name="amount" value="10000"/>
+            <column name="cash_balance" value="5000"/>
+            <column name="non_cash_balance" value="5000"/>
+            <column name="payment_state" value="D"/>
+            <column name="bonus" value="0"/>
+            <column name="bonus_amount" value="0"/>
+            <column name="timestamp" value="now"/>
+
+        </insert>
+
+        <rollback>
+            <delete tableName="${prefix}_count">
+                <where>id='0608ae95-0107-49d1-9b95-5f691c345ea1'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
