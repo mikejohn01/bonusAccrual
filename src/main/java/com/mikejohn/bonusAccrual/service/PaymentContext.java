@@ -1,16 +1,12 @@
 package com.mikejohn.bonusAccrual.service;
 
 import com.mikejohn.bonusAccrual.dao.entity.BonusAccrualCount;
-import com.mikejohn.bonusAccrual.dao.repository.BonusAccrualCountRepository;
-import liquibase.pro.packaged.A;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-//@NoArgsConstructor
 @AllArgsConstructor
 public class PaymentContext {
     private IPayState iPayState;

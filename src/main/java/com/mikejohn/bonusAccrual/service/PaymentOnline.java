@@ -16,7 +16,6 @@ public class PaymentOnline extends PaymentParent {
     public void nextPayStatus(PaymentContext paymentContext) {
         if (paymentContext.getAmount() < 20) {
             paymentContext.setAmount(paymentContext.getAmount() + (paymentContext.getAmount() * 0.1));
-//            paymentContext.setIPayState(new PaymentRevert());
             paymentContext.setIPayState(paymentRevert);
         }
         Double bonus;
@@ -32,7 +31,6 @@ public class PaymentOnline extends PaymentParent {
         super.setNewPay(paymentContext, State.C.toString(), paymentContext.getPrevPay().getCash_balance(),
                 paymentContext.getPrevPay().getNon_cash_balance() - paymentContext.getAmount(),
                 bonus, bonus_amount);
-//        paymentContext.setIPayState(new PaymentBank());
         paymentContext.setIPayState(paymentBank);
     }
 

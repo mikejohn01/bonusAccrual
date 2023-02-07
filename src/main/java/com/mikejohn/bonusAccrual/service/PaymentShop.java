@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 public class PaymentShop extends PaymentParent {
 
     private PaymentContext paymentContext;
+    //    private final PaymentBank paymentBank; //пока не решена проблема инжектирования сюда бина следующего статуса
 
     public PaymentShop() {
         Double bonus;
@@ -31,12 +32,11 @@ public class PaymentShop extends PaymentParent {
                 bonus, bonus_amount);
     }
 
-    //    private final PaymentBank paymentBank;
+
 
     @Override
     public void nextPayStatus(PaymentContext paymentContext) {
-
-//        paymentContext.setIPayState(paymentBank);
+//        paymentContext.setIPayState(paymentBank); //пока не решена проблема инжектирования сюда бина следующего статуса
     }
 
     @Override
