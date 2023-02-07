@@ -3,6 +3,7 @@ package com.mikejohn.bonusAccrual.controller;
 import com.mikejohn.bonusAccrual.dao.dto.BankAccountOfEMoney;
 import com.mikejohn.bonusAccrual.dao.dto.Money;
 import com.mikejohn.bonusAccrual.service.MainService;
+import com.mikejohn.bonusAccrual.service.MainService2;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
 
     private final MainService mainService;
+    private final MainService2 mainService2;
 
     @ApiOperation("Оплата покупки")
     @RequestMapping(value = "/payment/{type}/{amount}", method = RequestMethod.GET)
