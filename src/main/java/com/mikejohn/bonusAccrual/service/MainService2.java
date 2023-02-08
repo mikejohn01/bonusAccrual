@@ -1,20 +1,20 @@
 package com.mikejohn.bonusAccrual.service;
 
-import com.mikejohn.bonusAccrual.dao.dto.BankAccountOfEMoney;
-import com.mikejohn.bonusAccrual.dao.dto.Money;
 import com.mikejohn.bonusAccrual.dao.entity.BonusAccrualCount;
 import com.mikejohn.bonusAccrual.dao.repository.BonusAccrualCountRepository;
-import com.mikejohn.bonusAccrual.enums.State;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.UUID;
+
+/**
+ * Реализация шаблона State
+ *
+ * @author Glushkovskii_Mikhail
+ */
 
 @Data
 @Service
@@ -36,12 +36,11 @@ public class MainService2 {
         if (type.equals("Shop")) {
             paymentContext.setIPayState(applicationContext.getBean(PaymentShop.class));
         } else if (type.equals("Online")) {
-            paymentContext.nextPayStatus();
-            paymentContext.nextPayStatus();
+            paymentContext.setIPayState(applicationContext.getBean(PaymentOnline.class));
         } else {
             throw new RuntimeException();
         }
-
+        paymentContext.nextPayStatus();
         paymentContext.nextPayStatus();
 
         return ResponseEntity.noContent().build();

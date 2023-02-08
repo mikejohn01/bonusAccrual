@@ -7,6 +7,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Статус - обработка платежа Банком
+ *
+ * @author Glushkovskii_Mikhail
+ */
+
 @Component
 @RequiredArgsConstructor
 public class PaymentBank implements IPayState {
@@ -15,6 +21,7 @@ public class PaymentBank implements IPayState {
 
     @Override
     public void nextPayStatus(PaymentContext paymentContext) {
+        //сохранение в БД
         saveBonusAccrualCount (paymentContext.getNewPay());
     }
 

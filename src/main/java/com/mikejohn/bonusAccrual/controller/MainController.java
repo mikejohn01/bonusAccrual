@@ -28,7 +28,7 @@ public class MainController {
     @RequestMapping(value = "/payment/{type}/{amount}", method = RequestMethod.GET)
     ResponseEntity payment(@PathVariable("type") String type,
                            @PathVariable ("amount") Double amount) {
-        return mainService.pay(type, amount);
+        return mainService2.pay(type, amount);
     };
 
     @ApiOperation("Количество бонусов на счете банка")
